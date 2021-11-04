@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BooksShop.Models;
+using BooksShop.ViewModels;
 
 namespace BooksShop
 {
