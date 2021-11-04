@@ -27,8 +27,11 @@ namespace BooksShop
       
         public void ConfigureServices(IServiceCollection services)
         {
+            
+            
             string connection = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<UserContext>(options => options.UseSqlServer(connection));
+            services.AddDbContext<BookContext>(options => options.UseSqlServer(connection));
 
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
             .AddCookie(options => {
