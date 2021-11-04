@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,9 +18,23 @@ namespace BooksShop.Controllers
             
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
+        {
+            return View(await db.Books.ToListAsync());
+
+        }
+
+        public IActionResult Create() 
         {
             return View();
+        }
+
+        public async Task<IActionResult> Create (Book book) 
+        {
+            db.Books.Add(book);
+            await db.SaveChangesAsync();
+            return RedirectToAction("Index");
+        
         }
     }
 }
