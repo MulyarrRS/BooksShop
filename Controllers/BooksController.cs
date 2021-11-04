@@ -17,7 +17,7 @@ namespace BooksShop.Controllers
             db = context;
             
         }
-
+        // получаем обьект из БД
         public async Task<IActionResult> Index()
         {
             return View(await db.Books.ToListAsync());
@@ -28,11 +28,11 @@ namespace BooksShop.Controllers
         {
             return View();
         }
-
+        [HttpPost]
         public async Task<IActionResult> Create (Book book) 
         {
-            db.Books.Add(book);
-            await db.SaveChangesAsync();
+            db.Books.Add(book); // добавляем в БД книгу
+            await db.SaveChangesAsync(); // сохраняем книгу
             return RedirectToAction("Index");
         
         }
