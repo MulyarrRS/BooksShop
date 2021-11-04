@@ -1,0 +1,12 @@
+﻿@model IEnumerable<BooksShop.Models.Book>
+@{
+    ViewBag.Title = "Все Книги";
+}
+<a asp-action="Create">Добавить пользователя</a>
+<table class="table">
+    <tr><td>Имя</td><td>Возраст</td></tr>
+    @foreach (var item in Model)
+    {
+        <tr><td>@item.Id</td><td>@item.NameBook</td><td>@item.AutorBook</td><td>@item.YearPublication</td></tr>
+    }
+</table>
